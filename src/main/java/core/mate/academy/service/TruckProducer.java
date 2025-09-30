@@ -5,7 +5,6 @@ import core.mate.academy.model.Truck;
 import java.util.List;
 import java.util.Arrays;
 
-
 public class TruckProducer implements MachineProducer<Truck> {
 
     @Override

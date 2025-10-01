@@ -1,10 +1,11 @@
 package core.mate.academy.service;
 
-import java.util.List;
 import java.util.Collections;
-import core.mate.academy.model.Machine;
+import java.util.List;
+
 import core.mate.academy.model.Bulldozer;
 import core.mate.academy.model.Excavator;
+import core.mate.academy.model.Machine;
 import core.mate.academy.model.Truck;
 
 public class MachineServiceImpl implements MachineService<Machine> {
@@ -12,11 +13,14 @@ public class MachineServiceImpl implements MachineService<Machine> {
     @Override
     public List<Machine> getAll(Class<? extends Machine> type) {
         if (type == Bulldozer.class) {
-            return new BulldozerProducer().get().stream().map(m -> (Machine) m).toList();
+            BulldozerProducer producer = new BulldozerProducer();
+            return producer.get().stream().map(m -> (Machine) m).toList();
         } else if (type == Excavator.class) {
-            return new ExcavatorProducer().get().stream().map(m -> (Machine) m).toList();
+            ExcavatorProducer producer = new ExcavatorProducer();
+            return producer.get().stream().map(m -> (Machine) m).toList();
         } else if (type == Truck.class) {
-            return new TruckProducer().get().stream().map(m -> (Machine) m).toList();
+            TruckProducer producer = new TruckProducer();
+            return producer.get().stream().map(m -> (Machine) m).toList();
         } else {
             return Collections.emptyList();
         }
@@ -31,8 +35,8 @@ public class MachineServiceImpl implements MachineService<Machine> {
 
     @Override
     public void startWorking(List<? extends Machine> machines) {
-        for (Machine machine : machines) {
-            machine.doWork();
+        for (Machine m : machines) {
+            m.doWork();
         }
     }
 }

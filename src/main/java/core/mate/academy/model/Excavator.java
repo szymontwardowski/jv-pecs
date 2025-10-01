@@ -1,14 +1,12 @@
 package core.mate.academy.model;
 
 public class Excavator extends Machine {
-    private double bucketCapacity; // przykład pola specyficznego dla Excavatora
-
-    public Excavator() {
-        super();
-    }
-
     public Excavator(String name, String color) {
         super(name, color);
+    }
+
+    public Excavator() {
+        super("Default Excavator", "White");
     }
 
     @Override

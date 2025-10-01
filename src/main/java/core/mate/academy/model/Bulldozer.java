@@ -1,10 +1,8 @@
 package core.mate.academy.model;
 
 public class Bulldozer extends Machine {
-    private double bladeSize; // przykład pola specyficznego dla Bulldozera
-
     public Bulldozer() {
-        super();
+        super("Bulldozer", "Yellow");
     }
 
     public Bulldozer(String name, String color) {

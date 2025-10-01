@@ -1,12 +1,14 @@
 package core.mate.academy.model;
 
-/**
- * Add some custom fields that could be only in Truck
- * Do not remove no-field constructor
- */
 public class Truck extends Machine {
+    private double loadCapacity;
+
+    public Truck() {
+        super();
+    }
+
     public Truck(String name, String color) {
-        super("", "");
+        super(name, color);
     }
 
     @Override
@@ -14,8 +16,3 @@ public class Truck extends Machine {
         System.out.println("Truck started to work");
     }
 }
-
-
-
-
-

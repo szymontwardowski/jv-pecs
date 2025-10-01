@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class TruckProducer implements MachineProducer<Truck> {
+
     @Override
     public List<Truck> get() {
         return Arrays.asList(new Truck(), new Truck(), new Truck());

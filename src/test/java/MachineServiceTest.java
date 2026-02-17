@@ -1,4 +1,5 @@
 import static org.junit.Assert.assertEquals;
+import org.junit.Assert;
 
 import core.mate.academy.model.Bulldozer;
 import core.mate.academy.model.Excavator;

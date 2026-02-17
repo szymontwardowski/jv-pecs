@@ -8,23 +8,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MachineServiceImpl implements MachineService<Machine> {
-
-    @SuppressWarnings("unchecked")
     @Override
-    public <M extends Machine> List<M> getAll(Class<M> type) {
-
-        MachineProducer<M> producer;
-
+    public List<Machine> getAll(Class<? extends Machine> type) {
         if (type == Bulldozer.class) {
-            producer = (MachineProducer<M>) new BulldozerProducer();
-        } else if (type == Excavator.class) {
-            producer = (MachineProducer<M>) new ExcavatorProducer();
-        } else if (type == Truck.class) {
-            producer = (MachineProducer<M>) new TruckProducer();
-        } else {
-            return new ArrayList<>();
+            return new ArrayList<>(new BulldozerProducer().get());
         }
-        return producer.get();
+        if (type == Excavator.class) {
+            return new ArrayList<>(new ExcavatorProducer().get());
+        }
+        if (type == Truck.class) {
+            return new ArrayList<>(new TruckProducer().get());
+        }
+        return new ArrayList<>();
     }
 
     @Override

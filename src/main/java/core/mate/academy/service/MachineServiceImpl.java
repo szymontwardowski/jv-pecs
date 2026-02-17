@@ -7,31 +7,32 @@ import core.mate.academy.model.Truck;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MachineServiceImpl implements MachineService<Machine> {
+public class MachineServiceImpl<T extends Machine> implements MachineService<T> {
     @Override
-    public List<Machine> getAll(Class<? extends Machine> type) {
+    @SuppressWarnings("unchecked")
+    public List<T> getAll(Class<? extends T> type) {
         if (type == Bulldozer.class) {
-            return new ArrayList<>(new BulldozerProducer().get());
+            return (List<T>) new BulldozerProducer().get();
         }
         if (type == Excavator.class) {
-            return new ArrayList<>(new ExcavatorProducer().get());
+            return (List<T>) new ExcavatorProducer().get();
         }
         if (type == Truck.class) {
-            return new ArrayList<>(new TruckProducer().get());
+            return (List<T>) new TruckProducer().get();
         }
         return new ArrayList<>();
     }
 
     @Override
-    public void fill(List<? super Machine> machines, Machine value) {
+    public void fill(List<? super T> machines, T value) {
         for (int i = 0; i < machines.size(); i++) {
             machines.set(i, value);
         }
     }
 
     @Override
-    public void startWorking(List<? extends Machine> machines) {
-        for (Machine machine : machines) {
+    public void startWorking(List<? extends T> machines) {
+        for (T machine : machines) {
             machine.doWork();
         }
     }

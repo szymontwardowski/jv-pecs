@@ -1,7 +1,10 @@
 package core.mate.academy.model;
 
 public abstract class Machine implements Workable {
-    private final String model;
+    private String model;
+
+    public Machine() {
+    }
 
     public Machine(String model) {
         this.model = model;
@@ -9,5 +12,9 @@ public abstract class Machine implements Workable {
 
     public String getModel() {
         return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
     }
 }

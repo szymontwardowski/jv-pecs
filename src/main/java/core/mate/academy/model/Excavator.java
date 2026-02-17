@@ -1,17 +1,12 @@
 package core.mate.academy.model;
 
 public class Excavator extends Machine {
-
-    public Excavator() {
-        super("Default Excavator", "Blue");
-    }
-
-    public Excavator(String model, String color) {
-        super(model, color);
+    public Excavator(String model) {
+        super(model);
     }
 
     @Override
     public void doWork() {
-        System.out.println("Excavator is digging.");
+        System.out.println("Excavator " + getModel() + " is working");
     }
 }

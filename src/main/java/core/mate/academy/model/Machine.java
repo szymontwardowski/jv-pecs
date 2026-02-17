@@ -1,23 +1,13 @@
 package core.mate.academy.model;
 
-public abstract class Machine {
-    private String model;
-    private String color;
+public abstract class Machine implements Workable {
+    private final String model;
 
-    public Machine() {}
-
-    public Machine(String model, String color) {
+    public Machine(String model) {
         this.model = model;
-        this.color = color;
     }
-
-    public abstract void doWork();
 
     public String getModel() {
         return model;
-    }
-
-    public String getColor() {
-        return color;
     }
 }
